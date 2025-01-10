@@ -40,9 +40,9 @@ if (window.DeviceMotionEvent) {
       const beta = event.beta; // rotation around the X axis
       const gamma = event.gamma; // rotation around the Y axis
       const alpha = event.alpha; // rotation around the Z axis
-      console.log('Alpha:', alpha);
-      console.log('Beta:', beta);
-      console.log('Gamma:', gamma);
+      // console.log('Alpha:', alpha);
+      // console.log('Beta:', beta);
+      // console.log('Gamma:', gamma);
 
       gyroX.innerHTML = alpha
       gyroY.innerHTML = beta
