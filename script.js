@@ -21,7 +21,7 @@ if (window.DeviceMotionEvent) {
       currentTime = (new Date().getTime() - currentTime) / 1000
 
       let dX = currentVeloX*currentTime + (1/2 * acceleration.x * currentTime**2)
-      traveledDistanceX = parseFloat((traveledDistanceX + dX).toFixed(2))
+      traveledDistanceX = traveledDistanceX + dX
       currentVeloX = Math.sqrt(currentVeloX**2 + 2*acceleration.x*dX)
 
       accelX.innerHTML = acceleration.x
