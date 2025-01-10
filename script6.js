@@ -63,8 +63,8 @@ window.addEventListener('deviceorientation', function(event) {
 
 const ball = document.getElementById("test-ball")
 let ballPos = ball.getBoundingClientRect()
-let avgAccArr = []
-let veloXArr = []  
+let avgAccArr = [null]
+let veloXArr = [null]  
 
 let startApp = setInterval(() => {
     // console.log("current velocity initially is : ", currentVeloX.toFixed(2))
