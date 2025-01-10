@@ -77,8 +77,8 @@ let startApp = setInterval(() => {
     }
     
 
-    accelYEle.innerHTML = avgAcceleration
-    accelZEle.innerHTML = currentVeloX
+    accelYEle.innerHTML = avgAccArr
+    accelZEle.innerHTML = veloXArr
 
 
     currentVeloX = currentVeloX + avgAcceleration*timeFrameInSec
