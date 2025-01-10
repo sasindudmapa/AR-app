@@ -1,3 +1,33 @@
 #distX{
     color: red;
 }
+
+
+.test-move-pc{
+    width: 600px;
+    height: 600px;
+    border: solid 1px black;
+    position: relative;
+}
+
+#test-ball{
+    height: 20px;
+    width: 20px;
+    background-color: red;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#test-ball-middle-point{
+    height: 20px;
+    width: 20px;
+    background-color: green;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
