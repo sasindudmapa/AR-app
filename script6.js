@@ -19,7 +19,7 @@ let yGyro = 0
 let zGyro = 0
 
 
-const timeFrame = 1000 //50 milliseconds
+const timeFrame = 50 //50 milliseconds
 const timeFrameInSec = timeFrame / 1000
 let currentVeloX = 0
 let traveledDistanceX = 0
@@ -79,7 +79,7 @@ let startApp = setInterval(() => {
 
     
 
-    ball.style.left = `${ballPos.x + dX*10}px`
+    ball.style.left = `${ballPos.x + dX*1000}px`
 
 
     distXEle.innerHTML = traveledDistanceX.toFixed(2)
