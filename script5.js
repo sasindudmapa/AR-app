@@ -19,12 +19,20 @@ let yGyro = 0
 let zGyro = 0
 
 
-const timeFrame = 1000 //50 milliseconds
+const timeFrame = 50 //50 milliseconds
 const timeFrameInSec = timeFrame / 1000
 let currentVeloX = 0
 let traveledDistanceX = 0
 
-const accels2 = [2,4,6,-6,-4,-2, -2,-4,-6, 6,4,2, -2,-4,-6, 6,4,2, 2,4,6,-6,-4,-2]
+const accels = [2,4,6,-6,-4,-2, -2,-4,-6, 6,4,2, -2,-4,-6, 6,4,2, 2,4,6,-6,-4,-2]
+
+const accels2 = [
+    0.98, -1.87, 1.32, -1.45, 0.74, 1.96, -0.82, 1.61, -1.27, 0.11,
+    -1.22, 1.75, 0.32, 1.40, -0.63, 1.18, 1.24, -1.73, 0.92, 1.07,
+    -0.39, 0.64, -1.93, 0.57, 0.51, -0.47, -1.65, 1.67, -0.08, 1.52,
+    0.23, -0.89, 0.88, -0.66, -0.22, 1.50, 0.74, -0.94, 0.11, -1.06,
+    1.63, -0.97, 0.18, -1.33, 1.78, 1.41, -0.56, 0.43, 0.95, 1.85
+  ]
 
 let index = 0
 xAccelerationCurrent = accels2[index]
@@ -82,7 +90,7 @@ let startApp = setInterval(() => {
 
     
 
-    ball.style.left = `${ballPos.x + dX*10}px`
+    ball.style.left = `${ballPos.x + dX*1000}px`
 
 
     distXEle.innerHTML = traveledDistanceX.toFixed(2)

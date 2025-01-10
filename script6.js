@@ -39,6 +39,8 @@ if (window.DeviceMotionEvent) {
     //   accelYEle.innerHTML = acceleration.y
     //   accelZEle.innerHTML = acceleration.z
     });
+
+
 } else {
     console.log('DeviceMotionEvent is not supported on this device.');
 }
@@ -61,14 +63,22 @@ window.addEventListener('deviceorientation', function(event) {
 
 const ball = document.getElementById("test-ball")
 let ballPos = ball.getBoundingClientRect()
-  
+let avgAccArr = []
+let veloXArr = []  
+
 let startApp = setInterval(() => {
     // console.log("current velocity initially is : ", currentVeloX.toFixed(2))
     let avgAcceleration = (xAccelerationPrev + xAccelerationCurrent)/2
     let dX = currentVeloX*timeFrameInSec + (1/2 * avgAcceleration * (timeFrameInSec**2))
 
-    accelYEle.innerHTML = xAccelerationPrev
-    accelZEle.innerHTML = xAccelerationCurrent
+    if(currentVeloX > 0){
+        avgAccArr.push(avgAcceleration)
+        veloXArr.push(currentVeloX)
+    }
+    
+
+    accelYEle.innerHTML = avgAccArr
+    accelZEle.innerHTML = veloXArr
 
     currentVeloX = currentVeloX + avgAcceleration*timeFrameInSec
     xAccelerationPrev = xAccelerationCurrent
@@ -90,5 +100,4 @@ let startApp = setInterval(() => {
 
 
 }, timeFrame);
-
 
