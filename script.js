@@ -7,6 +7,7 @@ const gyroY = document.getElementById("gyroY")
 const gyroZ = document.getElementById("gyroZ")
 
 const distX = document.getElementById("distX")
+console.log(distX.innerHTML)
 
 let currentVeloX = 0
 let currentTime = new Date().getTime()
@@ -16,10 +17,12 @@ let traveledDistanceX = 0
 if (window.DeviceMotionEvent) {
     window.addEventListener('devicemotion', function(event) {
       const acceleration = event.acceleration;
-      currentTime = new Date().getTime() - currentTime
-      let d = currentVeloX + (1/2 * acceleration.x * currentTime**2)
-      traveledDistanceX = traveledDistanceX + d
-      currentVeloX = Math.sqrt(currentVeloX**2 + 2*acceleration.x*d)
+
+      currentTime = (new Date().getTime() - currentTime) / 1000
+
+      let dX = currentVeloX*currentTime + (1/2 * acceleration.x * currentTime**2)
+      traveledDistanceX = parseFloat((traveledDistanceX + dX).toFixed(2))
+      currentVeloX = Math.sqrt(currentVeloX**2 + 2*acceleration.x*dX)
 
       accelX.innerHTML = acceleration.x
       accelY.innerHTML = acceleration.y
