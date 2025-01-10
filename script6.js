@@ -36,8 +36,8 @@ if (window.DeviceMotionEvent) {
       zAcceleration = acceleration.z
 
       accelXEle.innerHTML = acceleration.x
-      accelYEle.innerHTML = acceleration.y
-      accelZEle.innerHTML = acceleration.z
+    //   accelYEle.innerHTML = acceleration.y
+    //   accelZEle.innerHTML = acceleration.z
     });
 } else {
     console.log('DeviceMotionEvent is not supported on this device.');
@@ -67,6 +67,8 @@ let startApp = setInterval(() => {
     let avgAcceleration = (xAccelerationPrev + xAccelerationCurrent)/2
     let dX = currentVeloX*timeFrameInSec + (1/2 * avgAcceleration * (timeFrameInSec**2))
 
+    accelYEle.innerHTML = xAccelerationPrev
+    accelZEle.innerHTML = xAccelerationCurrent
 
     currentVeloX = currentVeloX + avgAcceleration*timeFrameInSec
     xAccelerationPrev = xAccelerationCurrent
@@ -89,6 +91,4 @@ let startApp = setInterval(() => {
 
 }, timeFrame);
 
-function calculateDistance(){
 
-}
