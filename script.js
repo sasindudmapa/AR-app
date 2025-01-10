@@ -26,6 +26,7 @@ if (window.DeviceMotionEvent) {
       accelZ.innerHTML = acceleration.z
 
       distX.innerHTML = traveledDistanceX
+      console.log("traveled distance: ", traveledDistanceX)
 
 
     });
