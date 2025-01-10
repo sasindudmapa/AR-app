@@ -10,7 +10,7 @@ const distX = document.getElementById("distX")
 console.log(distX.innerHTML)
 
 let currentVeloX = 0
-let currentTime = new Date().getTime()
+let prevTime = new Date().getTime()
 let traveledDistanceX = 0
 
 
@@ -18,17 +18,19 @@ if (window.DeviceMotionEvent) {
     window.addEventListener('devicemotion', function(event) {
       const acceleration = event.acceleration;
 
-      currentTime = new Date().getTime() - currentTime
+      currentTime = new Date().getTime()
+      let deltaTime = (currentTime - prevTime)/1000
+      prevTime = currentTime
 
-      let dX = currentVeloX*currentTime + (1/2 * acceleration.x * currentTime**2)
-      traveledDistanceX = traveledDistanceX + dX
+      let dX = currentVeloX*deltaTime + (1/2 * acceleration.x * deltaTime**2)
+      traveledDistanceX += dX
       currentVeloX = Math.sqrt(currentVeloX**2 + 2*acceleration.x*dX)
 
       accelX.innerHTML = acceleration.x
       accelY.innerHTML = acceleration.y
       accelZ.innerHTML = acceleration.z
 
-      distX.innerHTML = traveledDistanceX
+      distX.innerHTML = traveledDistanceX.toFixed(2)
       console.log("traveled distance: ", traveledDistanceX)
 
 
