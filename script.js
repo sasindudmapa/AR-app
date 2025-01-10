@@ -18,7 +18,7 @@ if (window.DeviceMotionEvent) {
     window.addEventListener('devicemotion', function(event) {
       const acceleration = event.acceleration;
 
-      currentTime = (new Date().getTime() - currentTime) / 1000
+      currentTime = new Date().getTime() - currentTime
 
       let dX = currentVeloX*currentTime + (1/2 * acceleration.x * currentTime**2)
       traveledDistanceX = traveledDistanceX + dX
