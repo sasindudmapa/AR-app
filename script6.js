@@ -8,6 +8,7 @@ const gyroZEle = document.getElementById("gyroZ")
 
 const distXEle = document.getElementById("distX")
 
+const sensitivity = 0.2
 
 let xAccelerationPrev = 0
 let xAccelerationCurrent = 0
@@ -67,7 +68,8 @@ let avgAccArr = [null]
 let veloXArr = [null]  
 
 let startApp = setInterval(() => {
-    // console.log("current velocity initially is : ", currentVeloX.toFixed(2))
+    if(xAccelerationCurrent> sensitivity){
+        // console.log("current velocity initially is : ", currentVeloX.toFixed(2))
     let avgAcceleration = (xAccelerationPrev + xAccelerationCurrent)/2
     let dX = currentVeloX*timeFrameInSec + (1/2 * avgAcceleration * (timeFrameInSec**2))
 
@@ -100,5 +102,6 @@ let startApp = setInterval(() => {
 
 
 
+    }
 }, timeFrame);
 
