@@ -26,6 +26,8 @@ let currentVeloX = 0
 let traveledDistanceX = 0
 
 
+let avgAccArr = [null]
+let veloXArr = [null]  
 
 
 if (window.DeviceMotionEvent) {
@@ -39,6 +41,11 @@ if (window.DeviceMotionEvent) {
       accelXEle.innerHTML = acceleration.x
     //   accelYEle.innerHTML = acceleration.y
     //   accelZEle.innerHTML = acceleration.z
+
+    if(currentVeloX > 0){
+        avgAccArr.push(avgAcceleration)
+        veloXArr.push(currentVeloX)
+    }
     });
 
 
@@ -64,18 +71,14 @@ window.addEventListener('deviceorientation', function(event) {
 
 const ball = document.getElementById("test-ball")
 let ballPos = ball.getBoundingClientRect()
-let avgAccArr = [null]
-let veloXArr = [null]  
+
 
 let startApp = setInterval(() => {
     // console.log("current velocity initially is : ", currentVeloX.toFixed(2))
     let avgAcceleration = (xAccelerationPrev + xAccelerationCurrent)/2
     let dX = currentVeloX*timeFrameInSec + (1/2 * avgAcceleration * (timeFrameInSec**2))
 
-    if(currentVeloX > 0){
-        avgAccArr.push(avgAcceleration)
-        veloXArr.push(currentVeloX)
-    }
+    
     
 
     accelYEle.innerHTML = avgAccArr
