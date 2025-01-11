@@ -47,8 +47,8 @@ if (window.DeviceMotionEvent) {
         veloXArr.push(currentVeloX)
     }
 
-    accelYEle.innerHTML = avgAccArr.toFixed(2)
-    accelZEle.innerHTML = veloXArr.toFixed(2)
+    accelYEle.innerHTML = avgAccArr
+    accelZEle.innerHTML = veloXArr
     });
 
 
