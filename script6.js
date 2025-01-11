@@ -43,12 +43,12 @@ if (window.DeviceMotionEvent) {
     //   accelZEle.innerHTML = acceleration.z
 
 
-        avgAccArr.push(acceleration.x)
-        veloXArr.push(currentVeloX)
+        avgAccArr.push(acceleration.x.toFixed(2))
+        veloXArr.push(currentVeloX.toFixed(2))
 
 
-    accelYEle.innerHTML = avgAccArr
-    accelZEle.innerHTML = veloXArr
+        accelYEle.innerHTML = avgAccArr
+        accelZEle.innerHTML = veloXArr
     });
 
 
