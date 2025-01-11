@@ -43,9 +43,12 @@ if (window.DeviceMotionEvent) {
     //   accelZEle.innerHTML = acceleration.z
 
     if(currentVeloX > 0){
-        avgAccArr.push(avgAcceleration)
+        avgAccArr.push(acceleration.x)
         veloXArr.push(currentVeloX)
     }
+
+    accelYEle.innerHTML = avgAccArr.toFixed(2)
+    accelZEle.innerHTML = veloXArr.toFixed(2)
     });
 
 
@@ -81,8 +84,7 @@ let startApp = setInterval(() => {
     
     
 
-    accelYEle.innerHTML = avgAccArr
-    accelZEle.innerHTML = veloXArr
+
 
 
     currentVeloX = currentVeloX + avgAcceleration*timeFrameInSec
