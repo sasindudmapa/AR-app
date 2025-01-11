@@ -42,10 +42,10 @@ if (window.DeviceMotionEvent) {
     //   accelYEle.innerHTML = acceleration.y
     //   accelZEle.innerHTML = acceleration.z
 
-    if(currentVeloX > 0){
+
         avgAccArr.push(acceleration.x)
         veloXArr.push(currentVeloX)
-    }
+
 
     accelYEle.innerHTML = avgAccArr
     accelZEle.innerHTML = veloXArr
